@@ -9,7 +9,7 @@ const loadPost = async() =>{
 const allDisplayPosts = allPosts =>{
     const cardContainer = document.getElementById('card-container')
     allPosts.forEach(posts => {
-        console.log(posts)
+        // console.log(posts)
         const div = document.createElement('div')
         div.innerHTML = `
         <div class="flex gap-x-6 justify-center">
@@ -67,6 +67,28 @@ const allDisplayPosts = allPosts =>{
         `
         cardContainer.appendChild(div)
     });
+//     const allEmailButton = document.getElementsByClassName('email-btn-click');
+// let read = 0;
+// for(const button of allEmailButton){
+// //    console.log(button)
+// button.addEventListener('click',function(e){
+//     read = read + 1;
+// })
+   
+// }
 }
 
 loadPost()
+
+// ----------------------------button click handler-------------------
+
+// const allEmailButton = document.getElementsByClassName('email-btn-click');
+// let read = 0;
+// for(const button of allEmailButton){
+// //    console.log(button)
+// button.addEventListener('click',function(e){
+//     read = read + 1;
+// })
+   
+// }
+
