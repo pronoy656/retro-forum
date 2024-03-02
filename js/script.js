@@ -78,15 +78,16 @@ const latestPost = async() =>{
 latestPost()
 loadPost()
 
+
 // ----------------------------button click handler-------------------
 
-// const allEmailButton = document.getElementsByClassName('email-btn-click');
-// let read = 0;
-// for(const button of allEmailButton){
-// //    console.log(button)
-// button.addEventListener('click',function(e){
-//     read = read + 1;
-// })
+const allEmailButton = document.getElementsByClassName('email-btn-click');
+let read = 0;
+for(const button of allEmailButton){
+//    console.log(button)
+button.addEventListener('click',function(e){
+    read = read + 1;
+})
    
-// }
+}
 
