@@ -11,8 +11,198 @@
       type="text/css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+    </style>
+    <style>
+      .body {
+        font-family: "Mulish";
+      }
+    </style>
+    <script
+      src="https://kit.fontawesome.com/2cd1b6c5d6.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- ----------tooltip text hover on navbar icon---------- -->
+    <!-- ----------home----------------- -->
+    <style>
+      .tooltiphome .tooltiptext {
+        visibility: hidden;
+        width: 80px;
+        background-color: black;
+        color: white;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+      }
+      .tooltiphome:hover .tooltiptext {
+        visibility: visible;
+      }
+      /* ---------pen----- */
+      .tooltippen .tooltiptextpen {
+        visibility: hidden;
+        width: 80px;
+        background-color: black;
+        color: white;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+      }
+      .tooltippen:hover .tooltiptextpen {
+        visibility: visible;
+      }
+      /* -------------add---------- */
+      .tooltipadd .tooltiptextadd {
+        visibility: hidden;
+        width: 80px;
+        background-color: black;
+        color: white;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+      }
+      .tooltipadd:hover .tooltiptextadd {
+        visibility: visible;
+      }
+      /* -----------flag---------- */
+      .tooltipflag .tooltiptextflag {
+        visibility: hidden;
+        width: 80px;
+        background-color: black;
+        color: white;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+      }
+      .tooltipflag:hover .tooltiptextflag {
+        visibility: visible;
+      }
+    </style>
   </head>
-  <body>
-    <h3>connect TAilwind</h3>
+  <body class="container mx-auto">
+    <div class="navbar bg-base-100">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li><a>Item 1</a></li>
+            <li>
+              <a>Parent</a>
+              <ul class="p-2">
+                <li><a>Submenu 1</a></li>
+                <li><a>Submenu 2</a></li>
+              </ul>
+            </li>
+            <li><a>Item 3</a></li>
+          </ul>
+        </div>
+        <a class="btn btn-ghost text-xl">daisyUI</a>
+      </div>
+      <div class="navbar-center flex gap-x-3">
+        <button class="border border-2 rounded-full p-2 tooltiphome">
+          <i class="fa-solid fa-house"></i>
+          <span class="tooltiptext">Home</span>
+        </button>
+        <button class="border border-2 rounded-full p-2 tooltippen">
+          <i class="fa-solid fa-pen"></i>
+          <span class="tooltiptextpen">Edit</span>
+        </button>
+        <button class="border border-2 rounded-full p-2 tooltipadd">
+          <i class="fa-solid fa-user-plus"></i>
+          <span class="tooltiptextadd">Add</span>
+        </button>
+        <button class="border border-2 rounded-full p-2 tooltipflag">
+          <i class="fa-regular fa-flag"></i>
+          <span class="tooltiptextflag">Book Mark</span>
+        </button>
+      </div>
+      <div class="navbar-end">
+        <a class="btn">Sign in</a>
+      </div>
+    </div>
+
+    <!-- ---------BANNER SECTION--------- -->
+
+    <section>
+      <div class="flex justify-center">
+        <div
+          class="bg-[#12132D] relative w-[1170px] h-[720px] lg:h-[550px] rounded-[32px]"
+        >
+          <img class="h-[100%]" src="images/bgbanner.png" alt="" />
+        </div>
+        <div class="lg:flex gap-x-36 absolute top-40">
+          <div>
+            <div class="text-white">
+              <p class="text-6xl font-black">
+                Welcome to the <br />
+                <span class="text-blue-600/75">ReTro</span> Forum
+              </p>
+              <p class="text-xl font-medium mt-5">
+                Share your favorite opinion and win and wp <br />
+                forum coffee mug!
+              </p>
+            </div>
+            <div class="relative mt-8">
+              <input
+                class="bg-white w-[400px] h-[56px] rounded-3xl p-2"
+                type="text"
+                placeholder="Search here anything"
+              />
+              <div
+                class="absolute top-1 left-80 border border-1 rounded-[46px] p-3 bg-[#797dfc] text-white"
+              >
+                <button>Search</button>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-[32px] w-[371px] h-[288px] p-5 sm:mt-3">
+            <div class="flex gap-x-14 text-2xl font-medium">
+              <p>Registered Users</p>
+              <p>01</p>
+            </div>
+            <div class="flex gap-x-40 text-2xl font-medium mt-6">
+              <p>Forum</p>
+              <p>05</p>
+            </div>
+            <div class="flex gap-x-40 text-2xl font-medium mt-6">
+              <p>Topics</p>
+              <p>01</p>
+            </div>
+            <div class="flex gap-x-40 text-2xl font-medium mt-6">
+              <p>Replies</p>
+              <p>01</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
