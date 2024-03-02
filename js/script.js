@@ -67,17 +67,15 @@ const allDisplayPosts = allPosts =>{
         `
         cardContainer.appendChild(div)
     });
-//     const allEmailButton = document.getElementsByClassName('email-btn-click');
-// let read = 0;
-// for(const button of allEmailButton){
-// //    console.log(button)
-// button.addEventListener('click',function(e){
-//     read = read + 1;
-// })
-   
-// }
+
 }
 
+const latestPost = async() =>{
+    const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts')
+    const postData = await response.json
+    console.log(postData)
+}
+latestPost()
 loadPost()
 
 // ----------------------------button click handler-------------------
