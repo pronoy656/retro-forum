@@ -194,11 +194,6 @@ const slideApndChild = document.getElementById('slide-apnd-child')
 
   slideApndChild.appendChild(li);
 // --------------------------------------------------------------
-// const loadChildPost = async() =>{
-//  const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/post/101');
-//  const data = await response.json();
-//  console.log(data)
-// }
   
 }
 
