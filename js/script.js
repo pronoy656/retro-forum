@@ -1,5 +1,5 @@
-const loadPost = async() =>{
-    const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
+const loadPost = async(searchText) =>{
+    const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`);
     const data = await response.json();
     // console.log(data)
     const post = data.posts
@@ -8,6 +8,10 @@ const loadPost = async() =>{
 }
 const allDisplayPosts = allPosts =>{
     const cardContainer = document.getElementById('card-container')
+
+    // clear phone container card before adding new cards
+     cardContainer.textContent = ''
+
     allPosts.forEach(posts => {
         // console.log(posts)
         const div = document.createElement('div')
@@ -54,8 +58,8 @@ const allDisplayPosts = allPosts =>{
                   <i class="fa-regular fa-clock"></i>
                   <p>${posts.posted_time}</p>
                 </div>
-                <div class="btn ml-64 bg-[#10B981] mt-3">
-                  <button class="email-btn-click">
+                <div class="btn rounded-full ml-64 bg-[#10B981] mt-3">
+                  <button onclick="emailBtnClick()" class="email-btn-click text-3xl">
                     <i class="fa-solid fa-envelope"></i>
                   </button>
                 </div>
@@ -66,6 +70,8 @@ const allDisplayPosts = allPosts =>{
       </div>
         `
         cardContainer.appendChild(div)
+
+
     });
 
 }
@@ -77,14 +83,14 @@ const latestPost = async() =>{
     latestPostDisplay(postData)
 }
 const latestPostDisplay = allLatestPost =>{
-  console.log(allLatestPost)
+  // console.log(allLatestPost)
   const latestPostContainer = document.getElementById('latest-post-container')
   allLatestPost.forEach (postLatest =>{
-    console.log(postLatest)
+    // console.log(postLatest)
     const div = document.createElement('div')
     div.innerHTML = `
     <div
-    class="border border-indigo-600 w-[374px] mt-12 rounded-[24px] p-2"
+    class="border border-indigo-600 w-[374px] h-[474px] mt-12 rounded-[24px] p-2"
   >
     <div class="w-[326px] h-[190px] justify-center ml-3 mt-3">
       <img
@@ -123,19 +129,55 @@ const latestPostDisplay = allLatestPost =>{
     latestPostContainer.appendChild(div)
   })
 }
+
+// Handle search button
+const handleSearch = () =>{
+  loaderIconToggle (true)
+  // console.log('click')
+  const searchField = document.getElementById('search-field')
+  const searchText = searchField.value
+  console.log(searchText)
+  loadPost(searchText)
+}
+
+const loaderIconToggle = (isLoading) =>{
+  const loaderIcon = document.getElementById('loader-icon')
+  if(isLoading){
+    loaderIcon.classList.remove('hidden')
+  }
+} 
+
 latestPost()
-loadPost()
+// loadPost(posts)
 
 
 // ----------------------------button click handler-------------------
+let sum = 0;
+const emailBtnClick = (e) =>{
+const slideApndChild = document.getElementById('slide-apnd-child')
+  // console.log('achi')
+  sum = sum + 1;
+  const readCount = document.getElementById('read-count')
+  readCount.innerText = sum
 
-// const allEmailButton = document.getElementsByClassName('email-btn-click');
-// let read = 0;
-// for(const button of allEmailButton){
-// //    console.log(button)
-// button.addEventListener('click',function(e){
-//     read = read + 1;
-// })
-   
-// }
+  const cardTitle = document.getElementById('card-title').innerText
+// e.target.innerText = cardTitle
+  const viewCount = document.getElementById('view-count').innerText
+
+  const li = document.createElement('li')
+
+  const p = document.createElement('p');
+  p.innerText = cardTitle ;
+  const p1 = document.createElement('p');
+  p1.innerText = viewCount;
+
+  li.appendChild(p);
+  li.appendChild(p1);
+
+  slideApndChild.appendChild(li);
+  
+}
+
+
+
 
