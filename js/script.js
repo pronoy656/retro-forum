@@ -1,3 +1,13 @@
+const allLoadPost = async() =>{
+  const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
+  const data = await response.json();
+  // console.log(data)
+  const post = data.posts
+  // console.log(post)
+  allDisplayPosts(post)
+}
+allLoadPost()
+
 const loadPost = async(searchText) =>{
     const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`);
     const data = await response.json();
@@ -20,11 +30,12 @@ const allDisplayPosts = allPosts =>{
         <div
           class="flex gap-6 bg-[#797DFC1A] w-[740px] rounded-3xl p-10 mt-12"
         >
-          <div class="w-[72px] h-[72px]">
+          <div class="w-[72px] h-[72px] relative">
             <img
               src="${posts.image}"
               alt=""
             />
+            <div class="w-4 h-4 rounded-full absolute -top-1 -right-1 ${posts?.isActive?"bg-[#10B981]" :"bg-[#FF3434]"}"></div>
           </div>
           <div>
             <div class="flex gap-x-5 items-center">
@@ -59,7 +70,7 @@ const allDisplayPosts = allPosts =>{
                   <p>${posts.posted_time}</p>
                 </div>
                 <div class="btn rounded-full ml-64 bg-[#10B981] mt-3">
-                  <button onclick="emailBtnClick()" class="email-btn-click text-3xl">
+                  <button onclick="emailBtnClick(${posts.id})" class="email-btn-click text-3xl">
                     <i class="fa-solid fa-envelope"></i>
                   </button>
                 </div>
@@ -160,7 +171,7 @@ latestPost()
 
 // ----------------------------button click handler-------------------
 let sum = 0;
-const emailBtnClick = (e) =>{
+const emailBtnClick = () =>{
 const slideApndChild = document.getElementById('slide-apnd-child')
   // console.log('achi')
   sum = sum + 1;
@@ -182,6 +193,12 @@ const slideApndChild = document.getElementById('slide-apnd-child')
   li.appendChild(p1);
 
   slideApndChild.appendChild(li);
+// --------------------------------------------------------------
+// const loadChildPost = async() =>{
+//  const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/post/101');
+//  const data = await response.json();
+//  console.log(data)
+// }
   
 }
 
