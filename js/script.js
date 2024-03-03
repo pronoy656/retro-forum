@@ -72,8 +72,56 @@ const allDisplayPosts = allPosts =>{
 
 const latestPost = async() =>{
     const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts')
-    const postData = await response.json
-    console.log(postData)
+    const postData = await response.json()
+    // console.log(postData)
+    latestPostDisplay(postData)
+}
+const latestPostDisplay = allLatestPost =>{
+  console.log(allLatestPost)
+  const latestPostContainer = document.getElementById('latest-post-container')
+  allLatestPost.forEach (postLatest =>{
+    console.log(postLatest)
+    const div = document.createElement('div')
+    div.innerHTML = `
+    <div
+    class="border border-indigo-600 w-[374px] mt-12 rounded-[24px] p-2"
+  >
+    <div class="w-[326px] h-[190px] justify-center ml-3 mt-3">
+      <img
+        class="rounded-3xl"
+        src="${postLatest.cover_image}"
+        alt=""
+      />
+    </div>
+    <div class="flex items-center mt-8 gap-x-2">
+      <i class="fa-regular fa-calendar-days"></i>
+      <p>${postLatest?.author?.posted_date || "No Publish Date"}</p>
+    </div>
+    <div>
+      <p class="text-lg font-extrabold mt-3">
+        ${postLatest.title}
+      </p>
+      <p class="text-base font-normal mt-3">
+      ${postLatest.description}
+      </p>
+    </div>
+    <div class="flex items-center mt-4 gap-x-4">
+      <div class="w-11 h-11">
+        <img
+          class="rounded-3xl"
+          src="${postLatest. profile_image}"
+          alt=""
+        />
+      </div>
+      <div>
+        <p class="text-base font-bold">${postLatest.author.name}</p>
+        <p>${postLatest?.author?.designation || "Unknown"}</p>
+      </div>
+    </div>
+  </div>
+    `
+    latestPostContainer.appendChild(div)
+  })
 }
 latestPost()
 loadPost()
@@ -81,13 +129,13 @@ loadPost()
 
 // ----------------------------button click handler-------------------
 
-const allEmailButton = document.getElementsByClassName('email-btn-click');
-let read = 0;
-for(const button of allEmailButton){
-//    console.log(button)
-button.addEventListener('click',function(e){
-    read = read + 1;
-})
+// const allEmailButton = document.getElementsByClassName('email-btn-click');
+// let read = 0;
+// for(const button of allEmailButton){
+// //    console.log(button)
+// button.addEventListener('click',function(e){
+//     read = read + 1;
+// })
    
-}
+// }
 
