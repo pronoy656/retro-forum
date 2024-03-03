@@ -71,8 +71,11 @@ const allDisplayPosts = allPosts =>{
         `
         cardContainer.appendChild(div)
 
-
     });
+
+    // hide loading spinner
+    loaderIconToggle(false)
+
 
 }
 
@@ -145,6 +148,10 @@ const loaderIconToggle = (isLoading) =>{
   if(isLoading){
     loaderIcon.classList.remove('hidden')
   }
+  else{
+    loaderIcon.classList.add('hidden')
+  }
+
 } 
 
 latestPost()
