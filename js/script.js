@@ -28,7 +28,7 @@ const allDisplayPosts = allPosts =>{
         div.innerHTML = `
         <div class="flex gap-x-6 justify-center">
         <div
-          class="flex gap-6 bg-[#797DFC1A] w-[400px] lg:w-[740px] rounded-3xl p-10 mt-12"
+          class="flex flex-col lg:flex-row gap-6 bg-[#797DFC1A] w-[400px] lg:w-[740px] rounded-3xl p-10 mt-12"
         >
           <div class="lg:w-[72px] lg:h-[72px] relative">
             <img
