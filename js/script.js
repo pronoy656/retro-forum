@@ -28,9 +28,9 @@ const allDisplayPosts = allPosts =>{
         div.innerHTML = `
         <div class="flex gap-x-6 justify-center">
         <div
-          class="flex gap-6 bg-[#797DFC1A] w-[740px] rounded-3xl p-10 mt-12"
+          class="flex gap-6 bg-[#797DFC1A] w-[400px] lg:w-[740px] rounded-3xl p-10 mt-12"
         >
-          <div class="w-[72px] h-[72px] relative">
+          <div class="lg:w-[72px] lg:h-[72px] relative">
             <img
               src="${posts.image}"
               alt=""
@@ -69,7 +69,7 @@ const allDisplayPosts = allPosts =>{
                   <i class="fa-regular fa-clock"></i>
                   <p>${posts.posted_time}</p>
                 </div>
-                <div class="btn rounded-full ml-64 bg-[#10B981] mt-3">
+                <div class="btn rounded-full lg:ml-64 bg-[#10B981] mt-3">
                   <button onclick="emailBtnClick(${posts.id})" class="email-btn-click text-3xl">
                     <i class="fa-solid fa-envelope"></i>
                   </button>
@@ -104,7 +104,7 @@ const latestPostDisplay = allLatestPost =>{
     const div = document.createElement('div')
     div.innerHTML = `
     <div
-    class="border border-indigo-600 w-[374px] h-[474px] mt-12 rounded-[24px] p-2"
+    class="border border-indigo-600 w-[366px] lg:w-[374px] h-[474px] ml-6 lg:ml-0 mt-12 rounded-[24px] p-2"
   >
     <div class="w-[326px] h-[190px] justify-center ml-3 mt-3">
       <img
