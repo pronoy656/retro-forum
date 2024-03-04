@@ -166,35 +166,31 @@ const loaderIconToggle = (isLoading) =>{
 } 
 
 latestPost()
-// loadPost(posts)
 
 
-// ----------------------------button click handler-------------------
+
 let sum = 0;
-const emailBtnClick = () =>{
+const emailBtnClick = async(id) =>{
+console.log(id)
+
+const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
+const data = await res.json()
+const postEl = data?.posts
+
+const singlePost = postEl.find(post => post.id === id) 
+console.log(singlePost)
+
+sum = sum + 1;
+const readCount = document.getElementById('read-count')
+readCount.innerText = sum
+
 const slideApndChild = document.getElementById('slide-apnd-child')
-  // console.log('achi')
-  sum = sum + 1;
-  const readCount = document.getElementById('read-count')
-  readCount.innerText = sum
+const div = document.createElement('div')
+div.innerHTML += `
+<li>${singlePost.title} - ${singlePost.view_count}</li>
+`
+slideApndChild.appendChild(div)
 
-  const cardTitle = document.getElementById('card-title').innerText
-// e.target.innerText = cardTitle
-  const viewCount = document.getElementById('view-count').innerText
-
-  const li = document.createElement('li')
-
-  const p = document.createElement('p');
-  p.innerText = cardTitle ;
-  const p1 = document.createElement('p');
-  p1.innerText = viewCount;
-
-  li.appendChild(p);
-  li.appendChild(p1);
-
-  slideApndChild.appendChild(li);
-// --------------------------------------------------------------
-  
 }
 
 
